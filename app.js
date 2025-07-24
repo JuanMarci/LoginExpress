@@ -48,7 +48,7 @@ try {
 })
 app.get('/validar', (req, res) => {
   if (req.session.usuario){
-    res.status(200).send('Sesión validada')
+    res.status(200).send('Sesión')
   } else {
     res.status(401).send('no autorizado')
   }
