@@ -54,6 +54,6 @@ app.get('/validar', (req, res) => {
   }
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(port, (3000) => {
+  console.log(`Servidor backend en http://localhost:3000 ${port}`)
 })
