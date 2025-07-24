@@ -11,11 +11,8 @@ app.use(cors({
   credentials: true
 }))
 app.use(session({
-  secret: 'ffdgfhbvnvjkjmnvmnxc',
-  resave: false,
-  saveUninitialized: false
-}));
-
+  secret: 'ffdgfhbvnvjkjmnvmnxc',  
+}))
 
 // Create the connection to database
 const connection = mysql.createPool({
@@ -27,7 +24,7 @@ const connection = mysql.createPool({
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
-app.get('/login',async (req, res) => { //req = request, peticion; res = response, respuesta
+app.get('/login', async (req, res) => { //req = request, peticion; res = response, respuesta
   const datos = req.query;
   // A simple SELECT query
 try {
@@ -49,8 +46,8 @@ try {
 }
 })
 app.get('/validar', (req, res) => {
-  if (req.session.usuario){
-    res.status(200).send('Sesión')
+  if (req.session.usuario) {
+    res.status(200).send('Sesión validada')
   } else {
     res.status(401).send('no autorizado')
   }
