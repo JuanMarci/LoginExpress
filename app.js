@@ -9,7 +9,7 @@ const session = require('express-session')
 app.use(cors({
   origin: 'http://localhost:5173', // Cambia esto a la URL de tu frontend
   credentials: true
-}))
+}));
 app.use(session({
   secret: 'ffdgfhbvnvjkjmnvmnxc',  
 }))
