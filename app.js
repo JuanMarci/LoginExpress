@@ -11,8 +11,14 @@ app.use(cors({
   credentials: true
 }));
 app.use(session({
-  secret: 'ffdgfhbvnvjkjmnvmnxc',  
-}))
+  secret: 'ffdgfhbvnvjkjmnvmnxc',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    httpOnly: true,
+    secure: false // pon true si usas HTTPS
+  }
+}));
 
 // Create the connection to database
 const connection = mysql.createPool({
