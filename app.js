@@ -38,12 +38,12 @@ try {
     "SELECT * FROM `usuarios` WHERE `nombre` = ? AND `clave` = ?",
     [datos.usuario, datos.clave]
   );
-  if (results.length > 0){
-    req.session.usuario = datos.usuario; // Guardar el usuario en la sesión
-    res.status(200).send('Inicio de Sesión Correcto')
-  } else {
-    res.status(401).send('Datos incorrectos')
-  }
+  if (results.length > 0) {
+  req.session.usuario = usuario;
+  res.status(200).json({ mensaje: 'Inicio de sesión correcto', usuario });
+} else {
+  res.status(401).json({ mensaje: 'Credenciales inválidas' });
+}
 
   console.log(results); // results contains rows returned by server
   console.log(fields); // fields contains extra meta data about results, if available
