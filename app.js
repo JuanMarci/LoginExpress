@@ -39,7 +39,9 @@ try {
     [datos.usuario, datos.clave]
   );
   if (results.length > 0) {
-  req.session.usuario = usuario;
+  req.session.usuario = results[0]; // Guarda el primer usuario que coincide
+res.status(200).json({ mensaje: 'Inicio de sesión correcto', usuario: results[0] });
+
   res.status(200).json({ mensaje: 'Inicio de sesión correcto', usuario });
 } else {
   res.status(401).json({ mensaje: 'Credenciales inválidas' });
